@@ -1,0 +1,21 @@
+# Command: >OFFMSG[,Message]*CS
+# 该指令会将某端口的协议输出全部关闭，如果想只关闭某条协议输出，请在配置协议输出
+
+# Request
+# Message Name. Use "NOTSET" to turn off all configured messages.
+string message
+
+---
+
+# Response
+#  0    OK                        表示配置成功
+# -1    CHECKSUM_ERROR            校验位错误，包含无校验位或者错误校验位
+# -2    INVALID_COMMAND           无效指令，包含指令头错误、不支持指令
+# -3    INVALID_PARAMETER         无效参数，包含不符合参数定义以及枚举类型的参数识别到纯数字等等
+# -4    PARAMETER_EXCEED_LIMIT    参数超限，包含数字类参数超出定义范围
+# -5    PARAMETER_NUMBERS_ERROR   指定的参数个数超限(少于或者多于命令定义的参数个数)或者必选参数个数错误
+# -6    UNKNOWN_ERROR             未知错误
+# -7    CMD_INPROGRESS            命令执行中
+# -8    CMD_EXEC_FAIL             命令执行失败
+# -9    ROS_DRIVER_ERROR          ROS驱动错误
+int32 error_code 

@@ -1,0 +1,18 @@
+<launch>
+  <arg name="COM1" default="/dev/ttyUSB0" />
+  <arg name="baudrate" default="1500000" />
+  <arg name="frame_id" default="gnss" />
+  <arg name="nmea_gga_period" default="5" />
+  <arg name="gmf_bestp_period" default="0.1" />
+
+  <node pkg="huace_m7xx_ros_driver"
+        type="huace_m7xx_ros_driver_node"
+        name="HuaceM7xxDriverNode"
+        output="screen">
+    <param name="COM1" value="$(arg COM1)" />
+    <param name="baudrate" value="$(arg baudrate)" />
+    <param name="frame_id" value="$(arg frame_id)" />
+    <param name="nmea_gga_period" value="$(arg nmea_gga_period)" type="str" />
+    <param name="gmf_bestp_period" value="$(arg gmf_bestp_period)" type="str" />
+  </node>
+</launch>
